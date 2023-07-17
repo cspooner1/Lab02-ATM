@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
 
+using Program = Lab02_ATM.Program;
 namespace Lab02_Test
 {
 
@@ -25,9 +26,14 @@ namespace Lab02_Test
         public void TestViewBalance(decimal value)
         {
             Program.Deposit(value);
+            Assert.Equal(value, Program.ViewBalance());
         }
 
         [Theory]
         [InlineData(1)]
+        public void TheoryTest(int value)
+        {
+            Assert.Equal(1, value);
+        }
     }
 }
