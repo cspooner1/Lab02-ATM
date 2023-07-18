@@ -51,48 +51,51 @@ public class Program
 
     public static void UserInterface()
     {
-        Console.WriteLine("Choose an option:");
-        Console.WriteLine("View Balance");
-        Console.WriteLine("Withdraw");
-        Console.WriteLine("Deposit");
-        Console.WriteLine("Exit");
-
-        string option = Console.ReadLine();
-
-        switch (option)
+        bool exit = false;
+        while (exit != true)
         {
-            case "1":
-                Console.WriteLine("Current Balance: $" + ViewBalance());
-                break;
-            case "2":
-                Console.WriteLine("Enter the amount to withdraw: ");
-                if (decimal.TryParse(Console.ReadLine(), out decimal withdrawAmount))
-                {
-                    Withdraw(withdrawAmount);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid amount.");
-                }
-                break;
-            case "3":
-                Console.WriteLine("Enter the amount to deposit: ");
-                if (decimal.TryParse(Console.ReadLine(), out decimal depositAmount))
-                {
-                    Deposit(depositAmount);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. PLease enter a valid amount.");
-                }
-                break;
-            case "4":
-                exit = true;
-                Console.WriteLine("Thank You!");
-                break;
-            default:
-                Console.WriteLine("Invalid option. Please choose a valid option.");
-                break;
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("View Balance");
+            Console.WriteLine("Withdraw");
+            Console.WriteLine("Deposit");
+            Console.WriteLine("Exit");
+
+            string option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    Console.WriteLine("Current Balance: $" + ViewBalance());
+                    break;
+                case "2":
+                    Console.WriteLine("Enter the amount to withdraw: ");
+                    if (decimal.TryParse(Console.ReadLine(), out decimal withdrawAmount))
+                    {
+                        Withdraw(withdrawAmount);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid amount.");
+                    }
+                    break;
+                case "3":
+                    Console.WriteLine("Enter the amount to deposit: ");
+                    if (decimal.TryParse(Console.ReadLine(), out decimal depositAmount))
+                    {
+                        Deposit(depositAmount);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. PLease enter a valid amount.");
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Thank You!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please choose a valid option.");
+                    break;
+            }
         }
     }
 
